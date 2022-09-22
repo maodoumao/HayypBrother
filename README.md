@@ -27,10 +27,12 @@ SDK 接入步骤
     }
 
 2.在app/build.gradle应用
-    apply plugin: 'com.android.application'
-    apply plugin: 'com.brother.junkcode'
+
+ apply plugin: 'com.android.application'
+ apply plugin: 'com.brother.junkcode'
 
 //这两个要写32 compileSdkVersion 32 targetSdkVersion 32
+
 android {
     compileSdkVersion 32
     defaultConfig {
@@ -40,6 +42,7 @@ android {
         ....
     }
 ...
+
 dependencies {
     ......
     //添加需要的库
@@ -76,6 +79,7 @@ dependencies {
 }
 
 3.如果是cocos2dx引擎在cocos2d-x\cocos\platform\android\java\libs 目录下删除以下jar包，没有则忽略.
+
     com.android.vending.expansion.zipfile.jar
     okhttp-3.12.7.jar
     okio-1.15.0.jar
@@ -88,6 +92,7 @@ dependencies {
 
 
 4.AndroidManifest.xml 修改启动activity
+
     <activity
         .....
         <!--你的启动 activity 去掉-->
