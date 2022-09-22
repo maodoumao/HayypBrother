@@ -86,6 +86,7 @@ SDK 接入步骤
     okio-1.15.0.jar
     删除后在libcocos2dx/build.gradle 增加以下代码
     dependencies {
+        //implementation fileTree(include: ['*.jar'], dir: './java/libs')
         ....
         implementation 'com.happy.brother:game2dx:1.0.1@aar'
     }
