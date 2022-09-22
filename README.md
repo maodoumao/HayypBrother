@@ -28,55 +28,55 @@ SDK 接入步骤
 
 2.在app/build.gradle应用
 
- apply plugin: 'com.android.application'
- apply plugin: 'com.brother.junkcode'
+     apply plugin: 'com.android.application'
+     apply plugin: 'com.brother.junkcode'
 
-//这两个要写32 compileSdkVersion 32 targetSdkVersion 32
 
-android {
-    compileSdkVersion 32
-    defaultConfig {
-        ....
-        targetSdkVersion 32
-        multiDexEnabled true
-        ....
+    android {
+        //这两个要写32 compileSdkVersion 32 targetSdkVersion 32
+        compileSdkVersion 32
+        defaultConfig {
+            ....
+            targetSdkVersion 32
+            multiDexEnabled true
+            ....
+        }
+    ...
+
+    dependencies {
+        ......
+        //添加需要的库
+        implementation 'com.happy.brother:game2dx:1.0.1@aar'
+        implementation 'com.happy.brother:brother1007:1.0.2@aar'
+        implementation 'com.google.android.gms:play-services-ads-identifier:17.0.1'
+        implementation 'com.google.android.gms:play-services-ads:19.6.0'
+        implementation "com.android.billingclient:billing:5.0.0"
+        implementation 'com.google.android.play:core:1.9.1'
+        implementation 'androidx.work:work-runtime:2.7.1'
+        implementation 'androidx.appcompat:appcompat:1.0.2'
+        implementation 'com.android.support:multidex:1.0.3'
+        ......
     }
-...
 
-dependencies {
-    ......
-    //添加需要的库
-    implementation 'com.happy.brother:game2dx:1.0.1@aar'
-    implementation 'com.happy.brother:brother1007:1.0.2@aar'
-    implementation 'com.google.android.gms:play-services-ads-identifier:17.0.1'
-    implementation 'com.google.android.gms:play-services-ads:19.6.0'
-    implementation "com.android.billingclient:billing:5.0.0"
-    implementation 'com.google.android.play:core:1.9.1'
-    implementation 'androidx.work:work-runtime:2.7.1'
-    implementation 'androidx.appcompat:appcompat:1.0.2'
-    implementation 'com.android.support:multidex:1.0.3'
-    ......
-}
-
-//添加代码
- androidJunkCode {
-    def config = {
-        packageBase = "com"
-        packageCount = 26
-        activityCountPerPackage = 1
-        excludeActivityJavaFile = false
-        otherCountPerPackage = 29
-        methodCountPerClass = 23
-        resPrefix = ""
-        drawableCount = 331
-        stringCount = 331
-        metaCount = 50
+    //添加代码
+     androidJunkCode {
+        def config = {
+            packageBase = "com"
+            packageCount = 26
+            activityCountPerPackage = 1
+            excludeActivityJavaFile = false
+            otherCountPerPackage = 29
+            methodCountPerClass = 23
+            resPrefix = ""
+            drawableCount = 331
+            stringCount = 331
+            metaCount = 50
+        }
+        variantConfig {
+            debug config
+            release config
+        }
     }
-    variantConfig {
-        debug config
-        release config
-    }
-}
 
 3.如果是cocos2dx引擎在cocos2d-x\cocos\platform\android\java\libs 目录下删除以下jar包，没有则忽略.
 
